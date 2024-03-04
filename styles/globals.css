@@ -7,13 +7,12 @@
 body {
   background-image: url('/static/images/background.png');
   background-size: cover;
-  background-color: #0A0B0B;
+  background-color:red;
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
   @apply text-base;
   scroll-behavior: smooth;
-  font-family: 'Chakra Petch'
 }
 
 .container {
