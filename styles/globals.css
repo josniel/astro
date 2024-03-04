@@ -1,16 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('./fontello.css');
+@import url('./ChakraPetch.css');
+
 
 body {
-  @apply h-full text-base bg-white;
+  background-image: url('/static/images/background.png');
+  background-size: cover;
+  background-color: #0A0B0B;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  @apply text-base;
   scroll-behavior: smooth;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Chakra Petch'
 }
 
 .container {
-  @apply mx-auto max-w-[1860px] px-5;
+  @apply w-full max-w-[1720px] mx-auto;
 }
 
 /************* ScrollBar ***********/
@@ -22,11 +29,212 @@ body {
   @apply bg-transparent;
 }
 
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   @apply w-2 bg-white border-4 border-solid rounded-xl border-yellow-doge-500 bg-opacity-40;
-}
+} */
 
 /************* Button ***********/
 .button {
   @apply flex items-center justify-center px-5 py-3 text-sm font-normal transition rounded-lg focus:outline-none;
+}
+.button-primary {
+  @apply relative flex items-center justify-center px-5 py-3 text-sm font-normal transition rounded-lg focus:outline-none bg-yellow-doge-500 hover:bg-yellow-main-op-800 overflow-hidden;
+  transition: all 0.3s ease;
+  /* white-space: nowrap; */
+}
+
+.button-primary:hover .icon-primary {
+  display: block; 
+}
+
+.icon-primary {
+  @apply opacity-0 transition-transform duration-300;
+  display: none;
+}
+
+.button-primary:hover .icon-primary {
+  opacity: 1;
+}
+
+.button-secondary {
+  @apply flex items-center justify-center px-5 py-3 max-sm:py-1 max-sm:px-3 text-sm font-normal transition rounded-lg focus:outline-none border-yellow-doge-500 border hover:bg-yellow-main-op-600;
+}
+
+#astro-main:hover #astro2 {
+  opacity: 1;
+  display: block;
+}
+#astro-main:hover #astro {
+  display: none;
+  opacity: 0;
+}
+#astro2 {
+  display: none;
+  opacity: 0;
+  transition: opacity 3s;
+}
+#astro {
+  display: block;
+  opacity: 1;
+  transition: opacity 3s;
+}
+
+#tagLeft:hover #tooltipLeft {
+  opacity: 1;
+}
+#tooltipLeft{
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#tagMid:hover #tooltipMid {
+  opacity: 1;
+}
+#tooltipMid{
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#tagRight:hover #tooltipRight {
+  opacity: 1;
+}
+#tooltipRight{
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.box {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  top: 35%;
+  /* transform: translateY(-50%); */
+  /* z-index: 100; */
+}
+.box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url(/static/images/landing/about-us/box.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url(/static/images/landing/about-us/box.svg);
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.box-select-token {
+  @apply relative
+  overflow-hidden
+  w-[478px]
+  py-10
+  px-5
+  xl:px-8
+  bg-black-box
+  /* bg-opacity-40 */
+  xl:bg-transparent
+  xl:bg-opacity-100
+
+  before:content-[""]
+  before:absolute
+  before:bg-[url("/static/images/modal.svg")]
+  before:bg-no-repeat
+  before:h-[50%]
+  before:bg-cover
+  before:w-full
+  before:top-0
+  before:left-0
+  before:hidden
+  before:xl:block
+
+  after:content-[""]
+  after:absolute
+  after:bg-[url("/static/images/modal.svg")]
+  after:bg-no-repeat
+  after:bg-bottom
+  after:h-[50%]
+  after:bg-cover
+  after:w-full
+  after:bottom-0
+  after:left-0
+  after:hidden
+  after:xl:block
+}
+
+.swap-box::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%; 
+  width: 35%;
+  height: 15px;
+  transform: translateX(-50%);
+  border-radius: 0px 0px 12px 12px;
+  /* z-index: 1; */
+  @apply bg-black-box2
+}
+.for-box::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0; 
+  width: 30%;
+  height: 15px;
+  border-radius: 12px 12px 0px 0px;
+  @apply bg-black-box2
+}
+.for-box::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: 0; 
+  width: 30%;
+  height: 15px;
+  border-radius: 12px 12px 0px 0px;
+  @apply bg-black-box2
+}
+
+.search-box {
+  @apply relative bg-shark-400 bg-opacity-40 w-full rounded-xl pl-4 xl:pl-5 pr-4 xl:pr-3 py-3 flex items-center h-[62px]
+}
+.footer {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  bottom: 5%;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  background-image: url(/static/images/footer/footerBox.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.footer::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  background-image: url(/static/images/footer/footerBox.svg);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
