@@ -1,6 +1,6 @@
 'use client';
 import { LogoHeader } from "@/components/Logo";
-import HeaderRectangle from "../../../public/static/images/RectangleHeader.png";
+import RectangleHeader from "../../../public/static/images/RectangleHeader.png";
 import HeaderRectangleMobile from "../../../public/static/images/RectangleHeaderMobile.png";
 import MenuLine from "@/components/UI/Icons/MenuLine";
 import Image from 'next/image'
@@ -29,7 +29,8 @@ function useMediaQuery(query:any) {
 }
 
 const HeaderBase = ({ children }: { children?: React.ReactNode }) => {
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  let isDesktop = true;
+  isDesktop = useMediaQuery('(min-width: 1024px)');
 
   return (
     <header className="flex flex-col mx-auto w-[100%]">
@@ -37,11 +38,10 @@ const HeaderBase = ({ children }: { children?: React.ReactNode }) => {
         <div className="w-[calc(100%-20px)] max-w-[1820px] fixed z-[10]">
           <div className="absolute top-0 z-9 w-[100%] max-w-[1820px]">
             {isDesktop? (
-              <Image unoptimized={true} src={HeaderRectangle} alt="Header Rectangle" className="bg-opacity-30 backdrop-blur-[5px] mx-auto w-[100%] max-w-[1820px] h-[100px]"/>
+                <Image priority={true} src={RectangleHeader} alt="Header Rectangle" className="bg-opacity-30 backdrop-blur-[5px] mx-auto w-[100%] max-w-[1820px] h-[100px]"/>
               ) : (
-              <Image unoptimized={true} src={HeaderRectangleMobile} alt="Header Rectangle" className="bg-opacity-30 backdrop-blur-[5px] mx-auto w-[90%] h-[100px]"/>
+                <Image unoptimized={true} src={HeaderRectangleMobile} alt="Header Rectangle" className="bg-opacity-30 backdrop-blur-[5px] mx-auto w-[90%] h-[100px]"/>
             )}
-            {/* <Image unoptimized={true} src={HeaderRectangle} alt="Header Rectangle" className="bg-opacity-30 backdrop-blur-[5px] mx-auto w-[100%] h-[100px]"/> */}
           </div>
           <div className="w-[100%] !p-[18px] md:!pt-[14px] md:!pb-[31px] flex items-center z-10 max-lg:justify-around max-lg:mx-[10px]">
             <div className="flex items-center space-x-4 xl:w-[55%] lg:w-[44%] max-lg:w-auto z-10">
