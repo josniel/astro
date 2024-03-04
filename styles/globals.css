@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('./fontello.css');
+
+body {
+  @apply h-full text-base bg-white;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  @apply mx-auto max-w-[1860px] px-5;
+}
+
+/************* ScrollBar ***********/
+::-webkit-scrollbar {
+  @apply mr-[10px] w-[10px];
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply w-2 bg-white border-4 border-solid rounded-xl border-yellow-doge-500 bg-opacity-40;
+}
+
+/************* Button ***********/
+.button {
+  @apply flex items-center justify-center px-5 py-3 text-sm font-normal transition rounded-lg focus:outline-none;
+}
