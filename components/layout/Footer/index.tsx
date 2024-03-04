@@ -84,9 +84,7 @@ export const FooterLanding = () => {
                   )
                 }
               </div>
-              {/* <div className="flex justify-center mx-auto w-full">
-              </div> */}
-              <div className="mx-auto w-[100%] !p-[18px] pt-[8px] pb-[60px] max-lg:pb-[100px] flex max-md:flex-col items-center relative md:justify-between z-10 gap-3 max-md:mt-[-100px]">
+              <div className="mx-auto w-[100%] !p-[18px] lg:pt-[8px] md:mt-[-30px] lg:mt-[-30px] pb-[60px] max-lg:pb-[100px] flex max-md:flex-col items-center relative md:justify-between z-10 gap-3 max-md:mt-[-100px]">
                 <div className="flex items-center gap-4 justify-center md:hidden">
                   <div className="text-white text-2xl items-center flex font-extrabold">Astrodoge</div>
                   <div className="border-l border-green-doge4 h-5"></div>

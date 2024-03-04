@@ -17,7 +17,7 @@ import Wallet from "@/components/UI/Icons/Wallet";
 export const NavbarLanding = ({ isFooter }: { isFooter?: boolean }) => {
   return (
     <nav className={`flex items-center lg:justify-between ${isFooter ? 'w-[35%] my-2 max-md:w-[100%]':'w-[100%] max-lg:hidden'}`}>
-      <ul className={`${isFooter ? 'max-xl:grid max-xl:grid-cols-3 max-xl:gap-1 max-xl:text-nowrap w-[100%] xl:flex max-xl:mt-[-20px]' : 'flex xl:gap-3 lg:gap-[1]'}`}>
+      <ul className={`${isFooter ? 'max-xl:grid max-xl:grid-cols-3 max-xl:gap-1 max-xl:text-nowrap w-[100%] xl:flex max-md:mt-[-20px]' : 'flex xl:gap-3 lg:gap-[1]'}`}>
         {menuLinksLanding.map((link, i) => (
           <li key={i} className="hover:border-b-2 border-yellow-doge-500 z-10">
             <NavbarLinkLanding link={link} />
