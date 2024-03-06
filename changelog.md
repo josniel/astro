@@ -1,8 +1,29 @@
 # Changelog
+## 1.0.0-alpha.0 - (06-03-2024)
+
+### Fixed
+- status connected persist with zustand and session storage
+- State connected in mobile menu
+### Added
+- Navigation in desktop
+- Navigation in mobile
+- Menu hovers in desktop
+- Hovers: connect your wallet page
+
+## 1.0.0-alpha.0 - (05-03-2024)
+
+### Fixed
+- Header Rectangle
+### Added
+- Fonts poppins
+- Connect your wallet page
+- Status connected
+
 ## 1.0.0-alpha.0 - (04-03-2024)
 
-### Added
-- 
+### Fixed
+- the footer detail was fixed
+- Font details
 
 ## 1.0.0-alpha.0 - (01-03-2024)
 

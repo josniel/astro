@@ -14,8 +14,8 @@ export default function HomePage() {
       <HowToBuy id="section3" className="mb-[0px] max-lg:mt-[300px]" />
       <Tokenomics id="section4" className="mt-[40px]" />
       <RoadMap id="section5" className="mt-[40px]" />
-      <TakeToAction className="mt-[40px]" />
-      <Contact className="mt-[0px] max-lg:mt-[100px]" />
+      <TakeToAction id="section6" className="mt-[40px]" />
+      <Contact id="section7" className="mt-[0px] max-lg:mt-[100px]" />
     </main>
   );
 }

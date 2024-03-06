@@ -25,9 +25,6 @@ const AboutUs = ({ className = "" , id }: { className?: string , id?: string }) 
         <div className="max-xl:w-[100%] w-[50%] max-xl:mx-auto max-xl:mt-[-200px] flex justify-center" id="astro-main" onMouseOver={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
           <Image src={astroDoge2} className="w-[500px]" alt="AstroDoge2" id="astro2"/>
           <Image src={astroDoge} className="w-[500px]" alt="AstroDoge" id="astro"/>
-          {/* {isHover ? (
-            ):(
-          )} */}
         </div>
         <div className="max-xl:w-[100%] w-[50%] flex flex-col justify-center gap-4">
           <h1 className="text-yellow-doge-500 font-extrabold text-3xl max-xl:text-center mt-[-180px] max-xl:mt-[-30px]">Astrodoge</h1>

@@ -12,11 +12,18 @@ import meteorite5 from "../../../../public/static/images/landing/main-section/me
 import satellite from "../../../../public/static/images/landing/main-section/satellite.png";
 import ellipse from "../../../../public/static/images/landing/main-section/ellipse.png";
 import blast from "../../../../public/static/images/landing/main-section/blast.png";
+import { Poppins } from 'next/font/google'
+const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const MainSection = ({ className = "" , id }: { className?: string , id?: string }) => {
   return (
     <div
-      className={`relative pt-[120px] lg:pb-[120px] max-lg:px-[10%] lg:px-[94px] w-full ${className}`}
+      className={`relative pt-[120px] lg:pb-[120px] max-lg:px-[10%] lg:px-[94px] w-full ${className}`} id={id}
     >
       {<div className="absolute top-0 left-0 right-0 h-[2000px] z-[-9] w-full select-none pointer-events-none overflow-hidden">
         <Image
@@ -73,7 +80,7 @@ const MainSection = ({ className = "" , id }: { className?: string , id?: string
               The most astronomic memecoin in existence. AstroDoge has taken the universe in his interstellar travel.
             </p>
             <div className="flex items-center gap-2 mt-3">
-              <p className="text-green-doge font-medium">Avaiable on</p>
+              <p className={`text-green-doge font-medium ${poppins.className}`}>Avaiable on</p>
               <Image src={blast} alt="Blast"/>
             </div>
           </div>

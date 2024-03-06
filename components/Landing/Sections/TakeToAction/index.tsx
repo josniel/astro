@@ -4,21 +4,20 @@ import { useState } from 'react'
 import Button from '@/components/UI/Button'
 import Swap from '@/components/Landing/Sections/TakeToAction/Swap'
 import For from '@/components/Landing/Sections/TakeToAction/For'
-import Separator from '@/components/Landing/Sections/TakeToAction/Separator'
 import mainArrow from "../../../../public/static/images/buttons/main-arrow.svg";
-
 import { IToken } from '@/types'
 import Image from "next/image";
 import Astrodoge from '../../../../public/static/images/landing/take-to-action/astrodoge.svg'
+import useStore from '@/store'
 
-const Taketoaction = ({ className = "" }: { className?: string }) => {
+const Taketoaction = ({ className = "" , id }: { className?: string , id?: string }) => {
   const [tokenSell, setTokenSell] = useState<IToken>({ name: 'Fenix', symbol: 'FNX' })
   const [tokenGet, setTokenGet] = useState<IToken>({ name: 'USDC', symbol: 'USDC' })
   const [swapValue, setSwapValue] = useState<number>(0)
   const [forValue, setForValue] = useState<number>(0)
-
+  const isConnected = useStore((state) => state.isConnected)
   return (
-    <section className={`${className} container w-full`}>
+    <section className={`${className} container w-full`} id={id}>
       <div className="flex gap-3 w-[100%] max-xl:justify-center">
         <div className="flex flex-col items-end w-[50%] max-xl:hidden">
           <Image src={Astrodoge} alt="Astrodoge"/>
@@ -31,12 +30,17 @@ const Taketoaction = ({ className = "" }: { className?: string }) => {
                 value={swapValue}
                 setValue={setSwapValue}
               />
-              {/* <Separator /> */}
               <For token={tokenGet} setToken={setTokenGet} value={forValue} setValue={setForValue} />
             </div>
-            <Button variant='primary' className='w-[80%] mt-2' icon={mainArrow}>
-              Connect your wallet
-            </Button>
+            {
+              !isConnected ? 
+              (<Button variant='primary' className='w-[80%] mt-2' icon={mainArrow} href="/connect-your-wallet">
+                Connect your wallet
+              </Button>) : 
+              (<Button variant='primary' className='w-[80%] mt-2'>
+                Start SWAP
+              </Button>)
+            }
         </div>
       </div>
     </section>

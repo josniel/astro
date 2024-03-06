@@ -106,8 +106,6 @@ body {
   flex-flow: column;
   position: absolute;
   top: 35%;
-  /* transform: translateY(-50%); */
-  /* z-index: 100; */
 }
 .box::before {
   content: '';
@@ -130,6 +128,64 @@ body {
   background-image: url(/static/images/landing/about-us/box.svg);
   background-size: cover;
   background-position: right;
+  background-repeat: no-repeat;
+  /* z-index: 1; */
+}
+.boxConnect {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+}
+.boxConnect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  background-image: url(/static/images/connectWallet/box.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.boxConnect::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  background-image: url(/static/images/connectWallet/box.svg);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  /* z-index: 1; */
+}
+.boxConnectMobile {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+}
+.boxConnectMobile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  background-image: url(/static/images/connectWallet/boxMobile.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.boxConnectMobile::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  background-image: url(/static/images/connectWallet/boxMobile.svg);
+  background-size: cover;
+  background-position: bottom;
   background-repeat: no-repeat;
   z-index: 1;
 }

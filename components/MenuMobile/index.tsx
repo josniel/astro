@@ -9,10 +9,11 @@ import CircleClose from "@/components/UI/Icons/CircleClose";
 import GoTo from "@/components/UI/Icons/GoTo";
 import Close from "@/components/UI/Icons/Close";
 import ChevronUpRight from "@/components/UI/Icons/ChevronUpRight";
+import AccountHandler from "@/components/layout/Utils/Navbar/AccountHandler";
 
 import SelectorAccoundHandler from "@/components/layout/Utils/SelectorAccoundHandler";
 import SelectorAccoundHandlerSmall from "@/components/layout/Utils/SelectorAccoundHandler/SelectorAccoundHandlerSmall";
-
+import useStore from '@/store'
 import ComponentVisible from "@/hooks/useVisible";
 
 import {
@@ -30,7 +31,15 @@ export const MenuMobileLanding = () => {
     () => menuLinksLanding.filter((link) => link.subLinks),
     []
   );
-
+  const isConnected = useStore((state) => state.isConnected)
+  const handleMenuClick = (sectionId:string) => {
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+      const yOffset = -170; // Ajuste fino para centrar verticalmente
+      const y = sectionElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
   return (
       // aria-label={isVisible ? "Close menu" : "Open menu"}
     <div className="lg:hidden flex gap-2.5" ref={ref}>
@@ -52,7 +61,6 @@ export const MenuMobileLanding = () => {
             className="py-[22px] px-1.5 rounded-tl-[10px] rounded-bl-[10px] border-[2px] border-yellow-doge-500 bg-bg2 bg-opacity-20 backdrop-blur-[10.10px] absolute top-[calc(100%+15px)] right-0 w-[216px] flex flex-col gap-3 z-50"
           >
             <div className="flex items-center justify-between px-4">
-              {/* <AstroDoge width={80} height={21} /> */}
               <div className="text-white font-extrabold text-left text-2xl">Astrodoge</div>
               <button
                 className="btn !p-0 text-lg"
@@ -63,12 +71,18 @@ export const MenuMobileLanding = () => {
                 <CircleClose />
               </button>
             </div>
+            {isConnected && <AccountHandler/>}
             {menuLinksLanding.map((link, i) => (
-              <MenuMobileLink key={i} link={link} />
+              <span key={i} onClick={() => handleMenuClick(`section${i+1}`)}>
+                <MenuMobileLink link={link} />
+              </span>
             ))}
-            <Button variant="primary" icon={mainArrow}>
-              Connect your wallet
-            </Button>
+            { 
+              !isConnected &&
+              <Button variant="primary" icon={mainArrow} href="/connect-your-wallet">
+                Connect your wallet
+              </Button>
+            }
           </motion.div>
         )}
       </AnimatePresence>

@@ -7,6 +7,13 @@ import Disclaimer from "@/components/Disclaimer";
 import HeaderRectangle from "../../../public/static/images/RectangleHeader.png";
 import footerBox from "../../../public/static/images/footer/footerBox.svg";
 import blast from "../../../public/static/images/footer/blast.png";
+import { Poppins } from 'next/font/google'
+const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 import React, { useEffect, useState } from 'react';
 
@@ -141,7 +148,7 @@ export const FooterLanding = () => {
           </div>
         )
       }
-      <div className="flex mx-auto items-center mt-[-20px] max-lg:mt-[30px] justify-between max-lg:justify-center relative w-[90%] z-10 ">
+      <div className={`flex mx-auto items-center mt-[-20px] max-lg:mt-[30px] max-w-[1750px] justify-between max-lg:justify-center relative w-[90%] z-10 ${poppins.className}`}>
         <div className="text-green-doge3 font-normal">2024 © ASTRODOGE</div>
         <Disclaimer />
         <div className="flex items-center gap-2 mt-3 max-lg:hidden">

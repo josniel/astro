@@ -4,11 +4,12 @@ import RectangleHeader from "../../../public/static/images/RectangleHeader.png";
 import HeaderRectangleMobile from "../../../public/static/images/RectangleHeaderMobile.png";
 import MenuLine from "@/components/UI/Icons/MenuLine";
 import Image from 'next/image'
+import useStore from '@/store'
 import React, { useEffect, useState } from 'react';
 
 // Función para saber el tamaño de la pantalla
 function useMediaQuery(query:any) {
-  const [matches, setMatches] = useState(false);
+  const [matches, setMatches] = useState(true);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(query);
@@ -29,8 +30,8 @@ function useMediaQuery(query:any) {
 }
 
 const HeaderBase = ({ children }: { children?: React.ReactNode }) => {
-  let isDesktop = true;
-  isDesktop = useMediaQuery('(min-width: 1024px)');
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  const isConnected = useStore((state) => state.isConnected)
 
   return (
     <header className="flex flex-col mx-auto w-[100%]">
@@ -43,7 +44,7 @@ const HeaderBase = ({ children }: { children?: React.ReactNode }) => {
                 <Image unoptimized={true} src={HeaderRectangleMobile} alt="Header Rectangle" className="bg-opacity-30 backdrop-blur-[5px] mx-auto w-[90%] h-[100px]"/>
             )}
           </div>
-          <div className="w-[100%] !p-[18px] md:!pt-[14px] md:!pb-[31px] flex items-center z-10 max-lg:justify-around max-lg:mx-[10px]">
+          <div className={`w-[100%] !p-[18px] md:!pt-[14px] md:!pb-[31px] ${isConnected ? 'lg:mt-[-10px]': ''} flex items-center z-10 max-lg:justify-around max-lg:mx-[10px]`}>
             <div className="flex items-center space-x-4 xl:w-[55%] lg:w-[44%] max-lg:w-auto z-10">
               <LogoHeader />
               <div className="flex items-center font-black">

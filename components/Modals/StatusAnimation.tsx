@@ -19,7 +19,6 @@ export const StatusAnimation: React.FC<StatusAnimationProps> = ({
     }, 3000);
   }, []);
 
-  console.log("statusAnimation", statusAnimation);
 
   return (
     <div>

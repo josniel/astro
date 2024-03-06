@@ -5,9 +5,9 @@ import Astrodoge from '../../../../public/static/images/landing/contact/decorato
 import TWITTER from '/public/static/images/footer/Twitter.svg'
 import TELEGRAM from '/public/static/images/footer/Telegram.svg'
 
-const Contact = ({ className = "" }: { className?: string }) => {
+const Contact = ({ className = "" , id }: { className?: string , id?: string }) => {
   return (
-    <section className={`${className} mx-auto px-auto w-full container relative`}>
+    <section className={`${className} mx-auto px-auto w-full container relative`} id={id}>
       {<div className="absolute top-[-50px] left-0 right-0 h-[500px] z-[-9] w-full select-none pointer-events-none overflow-hidden md:hidden">
         <Image
           src={Astrodoge}
